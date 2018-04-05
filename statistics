@@ -18,7 +18,8 @@ Mar
 
 Apr
 02.04 Reverse array of integers
-05.04 Find first unique character
+05.04 Find first unique character, Bubble sort
+06.04 FRC| Transpose matrix
 
 May
 -
@@ -49,6 +50,8 @@ Dec
 
 
 Need to pay attention:
+
 FRC|Flip it(P1)
 FRC|Flip vertical(P1)
 LT|Valid Parentheses(P1)
+FRC| Transpose matrix

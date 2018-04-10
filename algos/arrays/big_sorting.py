@@ -1,4 +1,6 @@
-# Solution one, bad complexity and didn't passing all test cases
+# The first solution
+# the solution has a bad complexity
+# And didn't passing all test cases
 def big_sorting(unsorted):
     is_sorted = False
     length = len(unsorted)

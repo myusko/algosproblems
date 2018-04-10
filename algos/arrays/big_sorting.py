@@ -15,8 +15,6 @@ def big_sorting(unsorted):
     return unsorted
 
 
-# Solution two, passed all test cases
+# The second solution, passed all test cases
 def big__sorting(unsorted):
     return sorted(sorted(unsorted), key=len)
-
-print(big__sorting(['5', '10', '3333']))

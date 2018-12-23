@@ -35,13 +35,3 @@ class LinkedList:
             result.append(str(current.next))
             current = current.next
         return ' | '.join(result)
-
-
-
-linked_list = LinkedList()
-linked_list.append(1)
-linked_list.append(2)
-linked_list.append(3)
-linked_list.append(28)
-linked_list.append(48)
-print(linked_list.display())

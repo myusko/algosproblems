@@ -1,37 +1,60 @@
 class Node:
-    def __init__(self, value=None):
+    def __init__(self, value=None, previous=None, next_=None):
         self.value = value
-        self.next = None
+        self.previous = previous
+        self.next = next_
 
-    def __str__(self):
-        return f'Node({self.value}) -> Node({self.next.value if self.next else "empty"})'
+    def __repr__(self):
+        return repr(self.value)
 
 
 class LinkedList:
     def __init__(self):
-        self.head = Node()
+        self.head = None
+
+    def prepend(self, value):
+        new_head = Node(value=value, next_=self.head)
+        if self.head:
+            self.head.previous = self.head
+        self.head = new_head
 
     def append(self, value):
-        new_node = Node(value)
-        current = self.head
-        while current.next is not None:
-            current = current.next
-        current.next = new_node
+        if not self.head:
+            self.head = Node(value)
+            return
 
-    @property
-    def size(self):
-        size = 0
         current = self.head
 
-        while current.next is not None:
-            size += 1
+        while current.next:
             current = current.next
-        return size
+        current.next = Node(value, previous=current)
 
-    def display(self):
+    def find(self, value):
         current = self.head
-        result = []
-        while current.next is not None:
-            result.append(str(current.next))
+
+        while current and current.value != value:
             current = current.next
-        return ' | '.join(result)
+        return current
+
+    def remove(self, value):
+        pass
+
+    def reverse(self):
+        current = self.head
+        previous_node = None
+
+        while current:
+            previous_node = current.previous
+            current.previous = current.next
+            current.next = previous_node
+            current = current.previous
+        self.head = previous_node.previous
+
+    def __repr__(self):
+        nodes = []
+        current = self.head
+
+        while current:
+            nodes.append(repr(current))
+            current = current.next
+        return '[' + ' '.join(nodes) + ']'

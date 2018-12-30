@@ -36,8 +36,20 @@ class LinkedList:
             current = current.next
         return current
 
+    def remove_element(self, node):
+        if node.previous:
+            node.previous.next = node.next
+        if node.next:
+            node.next.previous = node.previous
+        if node is self.head:
+            self.head = node.next
+        node.previous = None
+        node.next = None
+
     def remove(self, value):
-        pass
+        node = self.find(value)
+        self.remove_element(node)
+        return True
 
     def reverse(self):
         current = self.head
@@ -49,6 +61,16 @@ class LinkedList:
             current.next = previous_node
             current = current.previous
         self.head = previous_node.previous
+
+    @property
+    def size(self):
+        nodes = []
+        current = self.head
+
+        while current:
+            nodes.append(current)
+            current = current.next
+        return len(nodes)
 
     def __repr__(self):
         nodes = []

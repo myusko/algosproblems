@@ -1,13 +1,7 @@
 from data_structures.linked_list import LinkedList
 
 
-EXPECTED_STRING_REPRESENTATION = 'Node(1) -> Node(2) | Node(2) -> Node(3) | ' \
-                                 'Node(3) -> Node(28) |' \
-                                 ' Node(28) -> Node(48) |' \
-                                 ' Node(48) -> Node(empty)'
-
-
-def test_single_linked_list():
+def test_double_linked_list():
     linked_list = LinkedList()
     linked_list.append(1)
     linked_list.append(2)
@@ -16,9 +10,21 @@ def test_single_linked_list():
     linked_list.append(48)
 
     assert linked_list.size == 5
-    assert linked_list.head.next.value == 1
-    assert linked_list.head.next.next.value == 2
-    assert linked_list.head.next.next.next.value == 3
-    assert linked_list.head.next.next.next.next.value == 28
-    assert linked_list.head.next.next.next.next.next.value == 48
-    assert linked_list.display() == EXPECTED_STRING_REPRESENTATION
+    assert repr(linked_list) == '[1 2 3 28 48]'
+
+    linked_list.prepend(0)
+
+    assert repr(linked_list) == '[0 1 2 3 28 48]'
+
+    linked_list.remove(3)
+    assert repr(linked_list) == '[0 1 2 28 48]'
+
+    linked_list.remove(0)
+
+    assert repr(linked_list) == '[1 2 28 48]'
+    assert linked_list.size == 4
+
+    assert repr(linked_list.find(2)) == '2'
+
+    linked_list.reverse()
+    assert repr(linked_list) == '[48 28 2 1]'

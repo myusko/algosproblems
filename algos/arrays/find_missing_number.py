@@ -6,6 +6,5 @@
 def find_missing_number(list_numbers):
     n = len(list_numbers)
     total = (n + 1) * (n + 2) / 2
-    print(total)
     total_sum = sum(list_numbers)
     return total - total_sum

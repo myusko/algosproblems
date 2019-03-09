@@ -1,7 +1,3 @@
-Priority - P1(High), P2(Important), P3(Normal), P4(Low)
-
-Solved:
-
 ----
 2018
 ----
@@ -73,3 +69,4 @@ Mar
 1.03 - LT|Reverse String
 2.03 - LT|Contains Duplicate, Reverse Vowels of a String, Missing number
 3.03 - LT|FizzBuzz, Find All Numbers Disappeared in an Array
+9.03 -   | 383, 414. 551, 771, 500

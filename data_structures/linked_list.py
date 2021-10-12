@@ -1,93 +1,103 @@
 class Node:
-    def __init__(self, val, prev, next_):
-        self.value = val
+    def __init__(self, val, prev=None, next=None):
+        self.val = val
         self.prev = prev
-        self.next = next_
-
-    def __repr__(self):
-        return repr(self.value)
+        self.next = next
 
 
-class LinkedList:
+class MyLinkedList:
     def __init__(self):
-        self.head = None
+        # Dummy objects to handle IndexError
+        self._head = Node(None)
+        self._tail = Node(None)
 
-    def append(self, value):
-        """Add a value to a LinkedList"""
-        if not isinstance(value, int):
-            raise ValueError('Value must be of integer type')
+        self._head.next = self._tail
+        self._tail.prev = self._head
 
-        if self.head is None:
-            self.head = Node(value, None, None)
+    def get(self, index: int) -> int:
+        """Get a node by index"""
+        current_node = self._head.next
+
+        while index != 0 and current_node:
+            current_node = current_node.next
+            index -= 1
+
+        if (
+            current_node is None
+            or current_node is self._tail
+            or current_node is self._head
+        ):
+            return -1
+
+        return current_node.val
+
+    def addAtHead(self, val: int) -> None:
+        """Add a node to at head"""
+        new_node = Node(val)
+
+        next_node = self._head.next
+
+        new_node.next = next_node
+        next_node.prev = new_node
+
+        self._head.next = new_node
+        new_node.prev = self._head
+
+    def addAtTail(self, val: int) -> None:
+        """Add a node to at tail"""
+        new_node = Node(val)
+
+        prev = self._tail.prev
+
+        prev.next = new_node
+        new_node.prev = prev
+        new_node.next = self._tail
+        self._tail.prev = new_node
+
+    def addAtIndex(self, index: int, val: int) -> None:
+        """Add a node before the specific value"""
+        new_node = Node(val)
+
+        current_node = self._head.next
+
+        while index != 0 and current_node:
+            current_node = current_node.next
+            index -= 1
+
+        prev = current_node.prev
+        prev.next = new_node
+        new_node.prev = prev
+        new_node.next = current_node
+        current_node.prev = new_node
+
+    def deleteAtIndex(self, index: int) -> None:
+        """Delete a node by specific index"""
+        current_node = self._head.next
+
+        while index != 0 and current_node:
+            current_node = current_node.next
+            index -= 1
+
+        if (
+            current_node is None
+            or current_node is self._head
+            or current_node is self._tail
+        ):
             return
 
-        last = self.__get_last()
-        last.next = Node(value, last, None)
+        prev = current_node.prev
+        next = current_node.next
 
-    def all(self):
-        """Returns a list of nodes values"""
-        result = []
-        current = self.head
+        prev.next = next
+        next.prev = prev
 
-        while current:
-            result.append(current.value)
-            current = current.next
-
-        return result
-
-    def size(self):
-        """Returns a LinkedList size"""
-        return len(self.all())
-
-    def first(self):
-        """Returns a first node of a LinkedList"""
-        return self.head
-
-    def last(self):
-        """Returns a last node of a LinkedList"""
-        return self.__get_last()
-
-    def maximum(self):
-        """Returns a minimum integer of a LinkedList"""
-        return max(self.all())
-
-    def minimum(self):
-        """Returns a maximum integer of a LinkedList"""
-        return min(self.all())
-
-    def remove(self, value):
-        """Removes a node from a LinkedList"""
-        current = self.head
-
-        while current:
-            if current.value == value:
-                if current is self.head:
-                    self.head = current.next
-                    return
-
-                prev = current.prev
-                next_ = current.next
-                next_.prev = current.prev
-
-                prev.next = next_
-
-            current = current.next
-
-    def reverse(self):
-        """Reverse a LinkedList"""
-        last = self.__get_last()
+    def __repr__(self):
+        """Represent the DoublyLinkedList as string"""
+        current_node = self._head.next
         result = []
 
-        while last:
-            result.append(last.value)
-            last = last.prev
-        return result
+        while current_node.next:
+            result.append(current_node.val)
+            current_node = current_node.next
 
-    def __get_last(self):
-        """Returns a last node of a LinkedList"""
-        last = self.head
-
-        while last:
-            if last.next is None:
-                return last
-            last = last.next
+        return "->".join(list(map(str, result)))

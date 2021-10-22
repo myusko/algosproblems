@@ -23,11 +23,10 @@ class Solution:
 
         # Iterating over all the available nodes
         while current_node and current_node.next:
-            # Keep a node of the parent node
-            # In case if the current_node and the parent node of the current_node have the same values
+            # Keep a next of the head's next node
             temporary_node = current_node.next.next
 
-            # If a value is equal, set a parent node of the current next node
+            # If a value is equal, set a next node of the head's next node
             if current_node.val == current_node.next.val:
                 current_node.next = temporary_node
 

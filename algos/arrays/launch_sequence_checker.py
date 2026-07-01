@@ -9,6 +9,7 @@ Examples:
      Input: ["stage_1", "stage_2", "dragon", "stage_1", "stage_2", "dragon"], [1, 10, 11, 2, 12, 111],
      Output: true
 """
+
 from collections import defaultdict
 
 

@@ -16,7 +16,7 @@ So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid ans
 # Time complexity is O(n)
 def frequency_sort(s):
     char_count = {}
-    result = ''
+    result = ""
     for char in s:
         if char in char_count:
             char_count[char] += 1

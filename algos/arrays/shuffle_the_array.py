@@ -12,8 +12,8 @@ Example:
 
 def shuffle(data, n):
     result = []
-    left = data[:len(data) - n]
-    right = data[len(data) - n:]
+    left = data[: len(data) - n]
+    right = data[len(data) - n :]
 
     for i in range(len(left)):
         result.extend([left[i], right[i]])

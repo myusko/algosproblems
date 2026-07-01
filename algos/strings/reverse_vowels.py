@@ -4,7 +4,7 @@ Write a function that takes a string as input and reverse only the vowels of a s
 
 
 def reverse_vowels(s):
-    vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+    vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
     pos = []
     for c in s:
         if c in vowels:

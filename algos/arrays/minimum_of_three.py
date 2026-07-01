@@ -14,5 +14,5 @@ def minimum_of_three(arr):
     result = []
     for x in arr:
         result.append(find_minimum(x))
-    output = ' '.join(list(map(str, result)))
+    output = " ".join(list(map(str, result)))
     return output

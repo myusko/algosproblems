@@ -6,8 +6,8 @@ def insertion_sort_part_one(n, arr):
     temp = arr[idx]
     while arr[idx - 1] > temp and idx > 0:
         arr[idx] = arr[idx - 1]
-        print(' '.join(map(str, arr)))
+        print(" ".join(map(str, arr)))
         idx -= 1
     arr[idx] = temp
-    print(' '.join(map(str, arr)))
+    print(" ".join(map(str, arr)))
     return arr

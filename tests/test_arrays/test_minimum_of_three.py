@@ -11,4 +11,4 @@ def test_find_minimum_of_three():
         [-901045, 3239312, 2616666],
         [-8451454, 7226886, 7796624],
     ]
-    assert '-9155969 -901045 -8451454' == (minimum_of_three(data))
+    assert "-9155969 -901045 -8451454" == (minimum_of_three(data))

@@ -8,6 +8,6 @@ After doing so, return the array.
 
 def replace_elements(array):
     for i in range(len(array) - 1):
-        array[i] = max(array[i + 1:])
+        array[i] = max(array[i + 1 :])
     array[-1] = -1
     return array

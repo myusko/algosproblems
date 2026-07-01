@@ -12,5 +12,5 @@ def minimum_of_two(arr):
         if isinstance(arr[x], list):
             min_value = find_min(arr[x])
             result.append(min_value)
-    output = ' '.join(list(map(str, result)))
+    output = " ".join(list(map(str, result)))
     return output

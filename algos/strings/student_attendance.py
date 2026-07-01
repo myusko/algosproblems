@@ -14,8 +14,8 @@ You need to return whether the student could be rewarded according to his attend
 
 def student_attendance(s):
     converted = list(s)
-    if converted.count('A') > 1:
+    if converted.count("A") > 1:
         return False
-    if 'LLL' in s:
+    if "LLL" in s:
         return False
     return True

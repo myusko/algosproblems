@@ -39,4 +39,3 @@ def valid_mountain_array(array):
             start_index += 1
 
     return start_index == array_length
-

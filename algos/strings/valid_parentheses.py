@@ -3,7 +3,7 @@
 
 
 def valid_parentheses(s):
-    dic = {'(': ')', '{': '}', '[': ']'}
+    dic = {"(": ")", "{": "}", "[": "]"}
     stack = []
     for c in s:
         if c in dic.keys():

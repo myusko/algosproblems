@@ -10,7 +10,7 @@ Each letter in the magazine string can only be used once in your ransom note.
 def ransom(ransom_note, magazine):
     for letter in ransom_note:
         if letter in magazine:
-            magazine = magazine.replace(letter, '', 1)
+            magazine = magazine.replace(letter, "", 1)
         else:
             return False
     return True
